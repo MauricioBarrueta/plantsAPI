@@ -1,0 +1,55 @@
+.navigation, .species-list-container {
+    display: flex; align-items: center;
+}
+
+.navigation {
+    justify-content: space-between;
+    padding: 5px; margin: 0; text-align: center;
+    background-color: #30694b; color: white;    
+    span { font-size: 14px; letter-spacing: 1px; }
+    button { margin-inline: 10px; }
+}
+
+.input-group {
+    max-width: 70%; margin: 10px auto !important;
+    input {
+        text-transform: capitalize; text-align: center; letter-spacing: 1px;
+        margin-right: 10px; 
+        &::placeholder {
+            text-transform: none; font-size: 14px; letter-spacing: normal;
+        }
+    }
+}
+
+.data-not-found {
+    width: 100%; scale: .3;
+    position: absolute; top: 0; filter: invert(100%);
+}
+
+.species-list-container {
+    justify-content: center; flex-wrap: wrap; 
+    gap: 15px; padding: 0.5rem 1em 1em 1em;     
+    .specie-card {
+        width: 300px; height: 350px; 
+        background-color: whitesmoke; box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+        text-align: center; padding: 0.5rem; border-radius: 5px; cursor: default;       
+        .specie-name {            
+            font-size: 12px;  font-weight: bold; text-transform: capitalize;
+            padding: 5px;            
+        }
+        .specie-other-names { 
+            font-size: 10px; font-style: italic;
+        }
+        .specie-img-container {
+            margin: 10px;
+            img { 
+                width: 250px; height: 220px;
+                border-radius: 10px; border: 1px solid;
+            }
+        }
+        .specie-details {
+            font-size: 12px; 
+            position: relative; z-index: 1;
+        }
+    }
+}

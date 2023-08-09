@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<div class="details-container">
+    <a class="back-btn" [href]="['species-list/page/1']">&#xf177; Volver al inicio</a> 
+
+    <img [src]="imgDataNotFound" alt="" class="data-not-found">
+
+    <div class="specie-details" *ngFor="let details of specie$">   
+        <p class="specie-name"><span class="specie-id">#{{id}}: </span>{{details.common_name}}</p>
+        <div class="specie-other-names">
+            <span>'{{details.scientific_name}}'</span>
+            <span *ngIf="details.other_name.length > 0"> / {{details.other_name}}</span>
+        </div>        
+        <div class="details-img-container">
+            <img [src]="details.default_image.original_url" *ngIf="details.default_image != null; else nullImage ">
+            <ng-template #nullImage>
+                <img src="../../../assets/img/not-found.webp" alt="">
+            </ng-template>
+        </div>
+        <div class="specie-spec">
+            <p class="spec" title="Tipo">&#xf4d8;: {{details.type}}</p>
+            <p class="spec" title="Dimensiones">&#xf546;: {{details.dimension}}</p>
+            <p class="spec" title="Tasa de crecimiento">&#xf548;: {{details.growth_rate}}</p>
+            <p class="spec" title="Ciclo de vida">&#xf252;: {{details.cycle}}</p>
+            <p class="spec" title="Regado">&#xf043;: {{details.watering}}                 
+                <span *ngIf="details.watering_general_benchmark.value != null">
+                    ({{details.watering_general_benchmark.value}} {{details.watering_general_benchmark.unit}})
+                </span>                
+            </p>
+            <p class="spec" title="Luz de sol">&#xf185;: {{details.sunlight}}</p>
+        </div>
+        <p class="specie-desc"><span>Descripción: </span>{{details.description}}</p>        
+        <div class="pest-and-cares">
+            <div class="specie-cares">
+                <span class="care-level">&#xe05c; Cuidados: {{details.care_level}}</span>
+                <a class="btn btn-link" [routerLink]="['/care-guide', id]" title="Más información">&#xf05a;</a>
+            </div>  
+            <div class="specie-pests">
+                <span class="pest-level">&#xe52b; Plagas más comunes:</span>
+                <a class="btn btn-link" [routerLink]="['/pest-disease', id]" title="Más información">&#xf05a;</a>
+            </div>
+        </div>        
+        <span class="more-spec-title">&#xf03a; Características:</span>
+        <div class="specie-more-spec">
+            <div class="row-1">
+                <p>Tolerante a sequía: <span>{{convert(details.drought_tolerant)}}</span></p>
+                <p>Tolerante a la sal: <span>{{convert(details.salt_tolerant)}}</span></p>
+                <p>Espinoso: <span>{{convert(details.thorny)}}</span></p>
+                <p>Invasora: <span>{{convert(details.invasive)}}</span></p>
+                <p>Tropical: <span>{{convert(details.tropical)}}</span></p>
+                <p>Para interiores: <span>{{convert(details.indoor)}}</span></p>
+                <p>Flores: <span>{{convert(details.flowers)}}</span></p>            
+            </div>
+            <div class="row-2">
+                <p>Frutal: <span>{{convert(details.fruits)}}</span></p>
+                <p>Fruta comestible: <span>{{convert(details.edible_fruit)}}</span></p>
+                <p>Hojas: <span>{{convert(details.leaf)}}</span></p>
+                <p>Color de hojas: <span>{{details.leaf_color}}</span></p>
+                <p>Hoja comestible: <span>{{convert(details.edible_leaf)}}</span></p>
+                <p>Para cocina: <span>{{convert(details.cuisine)}}</span></p>
+                <p>Medicinal: <span>{{convert(details.medicinal)}}</span></p>            
+            </div>
+        </div>        
+        <div class="specie-hardiness">
+            <p class="hardiness-level">&#xf57d; Rusticidad de la planta:
+                <a [href]="details.hardiness_location.full_url" target="hardiness-iframe" class="btn btn-link" title="Mostrar">&#xf002;</a>
+                <span> - Su habilidad para sobrevivir a condiciones adversas - </span>
+            </p>            
+            <iframe class="hardiness-iframe" [src]="details.hardiness_location.full_iframe" frameborder="0" name="hardiness-iframe"></iframe>
+        </div>        
+    </div>
+</div>
+
+

@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<div class="pest-info-container">
+
+    <button class="btn btn-link back-btn" (click)="backToDetails()">&#xf2ea; Volver a detalles</button>
+
+    <img [src]="imgDataNotFound" alt="" class="page-not-found">
+    
+    <div class="pest-card" *ngFor="let pest of pestData">
+        <div class="pest-name-info">
+            <p>{{pest.common_name}}</p>
+            <span>'{{pest.scientific_name}}'</span>
+            <span *ngIf="pest.other_name != null"> / {{pest.other_name}}</span>
+        </div>
+        <span class="desc-title">&#xf059; Descripción de la plaga:</span>
+
+        <div class="pest-description" >
+            <div class="pest-desc-rows" *ngFor="let desc of pestDescData">
+                <span class="desc-subtitle">{{desc.subtitle}}</span>
+                <p class="desc-description">{{desc.description}}</p>
+            </div>            
+        </div>
+
+        <span class="host-title">&#xf542; Huesped más común:</span>
+        <div class="pest-host">
+            <span> - Lugares que favorecen a la plaga para su propagación - </span>
+            <p>{{pest.host}}</p>
+        </div>     
+
+        <span class="sol-title">&#xe05c; Solución a la plaga:</span>
+        <div class="pest-solution">
+            <div class="pest-sol-rows" *ngFor="let solution of pestSolutionData">
+                <span class="sol-subtitle">{{solution.subtitle}}</span>
+                <p class="sol-description">{{solution.description}}</p>
+            </div>           
+        </div>
+
+        <span class="carousel-title">&#xf302; Galería de imágenes: </span> 
+        <div class="pest-img-carousel">
+            <div id="pest-carousel" class="carousel slide" data-bs-ride="carousel"> 
+                <div class="carousel-inner">
+                  <div class="carousel-item" *ngFor="let img of pest.images; let i = index" [ngClass]="(i === 0) ? 'active' : ''">
+                    <img [src]="img.original_url" class="d-block" alt="..." *ngIf="img.original_url != null; else nullImage">
+                    <ng-template #nullImage><img src="../../../assets/img/not-found.webp" alt=""></ng-template>
+                  </div>              
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#pest-carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#pest-carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>                                 
+        
+    </div>
+</div>

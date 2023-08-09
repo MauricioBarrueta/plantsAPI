@@ -1,0 +1,112 @@
+.details-container, .specie-spec, .pest-and-cares, .specie-more-spec, .specie-hardiness {
+    display: flex; align-items: center; flex-wrap: wrap;
+}
+.back-btn, .specie-spec, .pest-and-cares, .specie-hardiness {
+    background-color: #30694b; color: white; border-radius: 5px;
+}
+
+.details-container {
+    padding-bottom: 1em; justify-content: center;        
+    .data-not-found {
+        width: 100%; scale: 0.3;
+        position: absolute; top: 0; filter: invert(100%);
+    }
+    .back-btn {
+        font-size: 14px; letter-spacing: 2px; text-align: center;
+        margin-bottom: 10px; flex-basis: 100%; padding: 0.6rem; border-radius: 0;            
+    }
+
+    .specie-details {
+        width: 85%; text-align: center;
+        padding: 1em; border-radius: 10px; cursor: default;
+        background-color: whitesmoke; box-shadow: var(--customBoxShadow);
+        .specie-name {
+            font-size: 16px; text-align: center; text-transform: capitalize; 
+            letter-spacing: 2px; font-weight: bold;
+            margin: 0; padding: 5px; 
+        }
+
+        .specie-other-names { font-size: 12px; font-style: italic; }
+
+        .details-img-container {
+            padding: 1em; 
+            img { 
+                width: 300px; height: 250px;
+                border-radius: 10px; box-shadow: var(--customBoxShadow);
+            }
+        }
+
+        .specie-spec {
+            justify-content: space-around; padding: 5px; margin-top: 5px;            
+            .spec {
+                font-size: 11px; text-transform: capitalize;                
+                margin: 0; margin-inline: 5px; cursor: pointer;
+            }
+        }
+
+        .specie-desc {
+            font-size: 12px; text-align: justify; letter-spacing: 1px;
+            margin: 10px 0; padding: 5px 0;
+            span { font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        }   
+
+        .pest-and-cares {
+            flex-direction: row; cursor: default; padding: 5px;           
+            .specie-cares, .specie-pests {                
+                width: 50%;
+                font-size: 14px; letter-spacing: 1px;                                   
+                a { 
+                    font-size: 14px; text-decoration: none; color: white; 
+                    padding: 0; margin-left: 10px; transition: all 0.25s;
+                    &:hover { text-decoration: underline; opacity: 0.8; }
+                }            
+            }
+            .specie-cares {
+                span { text-transform: capitalize; }
+            }
+            .specie-pests { border-left: 1px solid white; } 
+        }    
+
+        .more-spec-title {
+            display: inline-block; margin: 5px 0 auto;
+            font-size: 14px; 
+        }
+
+        .specie-more-spec {
+            flex-direction: row; padding: 5px;        
+            .row-1 { border-right: 1px solid; }
+            .row-1, .row-2 { width: 50%; letter-spacing: 1px; }  
+            .row-2 p:nth-child(4) span { margin-right: 5px; border-right: 1px; }          
+            p {
+                font-size: 12px; margin: 5px 0;                 
+                span {
+                    text-transform: capitalize; font-weight: bold;
+                    color: darkred;
+                }
+            }
+        }   
+
+        .specie-hardiness {
+            justify-content: center; flex-wrap: wrap; margin-top: 5px;                  
+            .hardiness-level {
+                width: 100%; 
+                font-size: 14px; line-height: 5px;
+                padding-top: 5px; margin: 0;    
+                a { 
+                    font-size: 14px; text-decoration: none; color: white;
+                    margin: 0; padding: 0; transition: all 0.25s;
+                    &:hover { opacity: 0.8; text-decoration: underline; }
+                }  
+                span {
+                    width: 100%; display: inline-block;
+                    font-size: 10px; letter-spacing: 2px;
+                }    
+            }           
+            .hardiness-iframe {
+                width: 100%; height: 300px;
+                background-color: whitesmoke;
+                margin: 10px; border-radius: 5px;  
+            }
+        }        
+    }
+}

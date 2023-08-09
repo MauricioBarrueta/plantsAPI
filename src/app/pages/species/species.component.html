@@ -1,0 +1,30 @@
+<app-header></app-header>
+
+<div class="navigation">
+    <button class="btn btn-dark" (click)="prevPage()">&#xf104;</button>
+    <span>Barra de navegación</span>
+    <button class="btn btn-dark" (click)="nextPage()">&#xf105;</button>
+</div>
+
+<div class="input-group mb-3">
+    <span class="input-group-text" id="input-icon">&#xf06c;</span>
+    <input type="text" class="form-control" placeholder="Nombre de la planta o especie:" aria-describedby="input-icon" [(ngModel)]="query">
+    <button class="btn btn-dark btn-search" (click)="getQueryToList(query)">&#xf002;</button>
+</div>  
+
+<img class="data-not-found" [src]="imgDataNotFound" alt="">
+
+<div class="species-list-container">
+    <div class="specie-card" *ngFor="let specie of species$">
+        <span class="specie-name">#{{specie.id}}: {{specie.common_name}}</span>
+        <div class="specie-other-names">
+            - <span>"{{specie.scientific_name}}"</span>
+            <span *ngIf="specie.other_name.length > 0" > / {{specie.other_name}}</span> -
+        </div> 
+        <div class="specie-img-container">
+            <img [src]="specie.default_image.original_url" *ngIf="specie.default_image != null; else nullImage ">
+            <ng-template #nullImage><img src="../../../assets/img/not-found.webp"></ng-template>
+        </div>
+        <a class="btn btn-link specie-details" [routerLink]="['/specie-details', specie.id]">Ver detalles &#xf05a;</a>        
+    </div>   
+</div>

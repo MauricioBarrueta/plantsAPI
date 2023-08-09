@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace, FontAwesome;
+    min-height: 100vh;
+    background: rgb(53,136,86);
+    background: linear-gradient(0deg, rgba(53,136,86,1) 0%, rgba(90,171,97,1) 100%); 
+}
+
+p { margin: 0; }
+
+:root {
+    --customBoxShadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+}
+
+
+
+/*
+#F5F5F5
+#F2EAD3
+#DFD7BF
+#3F2305
+*/

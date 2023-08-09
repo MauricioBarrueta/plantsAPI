@@ -1,0 +1,58 @@
+.cares-list-container {
+    display: flex; align-items: center; flex-wrap: wrap; justify-content: center;
+    padding-bottom: 1em; gap: 15px;
+
+    .btn-back-details, .care-types { background-color: #30694b; color: white; }
+
+    .btn-back-details {
+        padding: 0.6rem; flex-basis: 100%; border-radius: 0;     
+        font-size: 14px; letter-spacing: 2px;
+    }
+
+    .page-not-found {
+        width: 100%; scale: 0.3;
+        position: absolute; top: 0; filter: invert(100%);
+    }
+
+    .care-card {
+        width: 80%; padding: 1em; border-radius: 10px;
+        text-align: center; cursor: default;
+        background-color: whitesmoke; box-shadow: var(--customBoxShadow);
+        .specie-name {
+            margin: 0 0 10px 0;
+            font-size: 16px; letter-spacing: 1px; 
+            span {
+                text-transform: capitalize; font-weight: bold;
+            }
+        }
+        .care-description {
+            margin-bottom: 15px;
+            border: 1px solid #30694b; border-radius: 5px;
+            .care-types {
+                padding: 3px 5px 5px 5px;               
+                .care-type-title {
+                    display: inline-block;
+                    font-size: 14px; letter-spacing: 1px;  
+                    span {
+                        cursor: pointer;
+                        text-transform: capitalize; letter-spacing: 2px;
+                    }                  
+                }                
+                img { 
+                    width: 15px; height: 15px; 
+                    margin-left: 10px;
+                    cursor: pointer; filter: invert(100%);
+                }
+                
+            }
+            .care-desc-title { 
+                display: inline-block; margin-top: 5px;                
+                font-size: 14px;
+            }
+            .care-desc-text {
+                font-size: 12px; letter-spacing: 1px; text-align: justify;
+                margin: 0; padding: 5px;                
+            }
+        }
+    }
+}
