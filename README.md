@@ -1,7 +1,11 @@
-# PlantsAPI
+🇲🇽 Página que permite consultar datos botánicos sobre una amplia variedad de especies de plantas, además de que es posible ver a     detalle las características, sus plagas más comunes, sus cuidados para prevenir dichas plagas e incluso los lugares en el         mundo en donde las condiciones son ideales para su crecimiento y mantenimiento.
+
+🇺🇸 This page allows you to consult botanical data on a wide variety of plant species, with the possibility of seeing in detail       their characteristics, their most common pests, their care to prevent them and even the places in the world where conditions      are ideal for their growth and maintenance.
+
+![PlantsAPI](https://github.com/MauricioBarrueta/plantsAPI/assets/60496232/890d12b3-742b-45f6-9b43-bc48eb98f37c)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
