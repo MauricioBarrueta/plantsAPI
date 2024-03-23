@@ -11,5 +11,9 @@ header {
         margin-top: 5px; border-bottom: 1px solid; padding-bottom: 5px;
         letter-spacing: 2px; font-size: 11px;
     }
-    a { padding: 5px; text-decoration: none !important; }
+    a { 
+        padding: 5px; transition: all 0.25s;
+        text-decoration: none !important; color: white; 
+        &:hover { opacity: .75; }
+    }
 }
