@@ -2,7 +2,7 @@
 
 🇺🇸 This page allows you to consult botanical data on a wide variety of plant species, with the possibility of seeing in detail       their characteristics, their most common pests, their care to prevent them and even the places in the world where conditions      are ideal for their growth and maintenance.
 
-![PlantsAPI](https://github.com/MauricioBarrueta/plantsAPI/assets/60496232/890d12b3-742b-45f6-9b43-bc48eb98f37c)
+![plantsBD](https://github.com/MauricioBarrueta/plantsAPI/assets/60496232/0e19a2fd-6a07-44e7-9423-f2158b6f06f0)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
