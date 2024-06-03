@@ -1,21 +1,19 @@
+<div class="cares-list-container">    
+    <button class="btn btn-link back-btn" (click)="backToDetails(id)">&#xf0e2; Volver a detalles</button>
 
-<app-header></app-header>
-
-<div class="cares-list-container">
-    
-    <button class="btn btn-link btn-back-details" (click)="backToDetails()">&#xf2ea; Volver a detalles</button>
-
-    <img [src]="imgDataNotFound" alt="" class="page-not-found">
+    <img [src]="imgDataNotFound" alt="" class="data-not-found">
 
     <div class="care-card" *ngFor="let care of caresList">   
         <p class="specie-name">&#xf4c2; Lista de cuidados esenciales de la especie: <span>{{care.common_name}}</span></p>     
         <div class="care-description" *ngFor="let careRow of care.section">
             <div class="care-types">
                 <p class="care-type-title">Tipo de cuidado: <span>{{careRow.type}}</span></p>
-                <img src="{{caresTypeIcons + careRow.type + '.svg'}}" title="{{careRow.type}}">
+                <img src="{{caresTypeIcons}}{{careRow.type}}.svg" title="{{careRow.type}}">
             </div>
             <span class="care-desc-title">&#xf05a; Descripción:</span>
             <p class="care-desc-text">{{careRow.description}}</p>
         </div>
     </div>
 </div>
+
+<app-header></app-header>

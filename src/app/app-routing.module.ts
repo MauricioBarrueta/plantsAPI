@@ -6,11 +6,13 @@ import { CaresComponent } from './pages/cares/cares.component';
 import { PestComponent } from './pages/pest/pest.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'species-list/page/1', pathMatch: 'full' },
-  { path: 'species-list/page/:page', component: SpeciesComponent },
-  { path: 'specie-details/:id', component: SpecieComponent },
-  { path: 'pest-disease/:id', component: PestComponent },
-  { path: 'care-guide/:id', component: CaresComponent },
+  { path: '', redirectTo: 'species-list/by', pathMatch: 'full' },
+
+  { path: 'species-list/by', component: SpeciesComponent },
+  { path: 'specie-details', component: SpecieComponent },
+  { path: 'specie-details/pest-diseases', component: PestComponent },
+  { path: 'specie-details/cares-guide', component: CaresComponent },  
+  
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

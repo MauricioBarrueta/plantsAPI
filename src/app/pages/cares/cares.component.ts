@@ -20,11 +20,11 @@ export class CaresComponent implements OnInit {
   imgDataNotFound!: string
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(param => { this.id = param['id'] })
     this.getCaresBySpecieId()    
   }
 
   getCaresBySpecieId() {
-    this.id = this.route.snapshot.paramMap.get('id')
     this.careService.getCaresBySpecieId(this.id)
       .pipe(
         catchError(error => {
@@ -41,7 +41,7 @@ export class CaresComponent implements OnInit {
   }
 
   /* Volver a los detalles de la planta */
-  backToDetails() {
-    this.router.navigate(['specie-details', this.id]);
+  backToDetails(param: number) {
+    this.router.navigate(['specie-details'], { queryParams: {id: `${param}`} })
   }
 }

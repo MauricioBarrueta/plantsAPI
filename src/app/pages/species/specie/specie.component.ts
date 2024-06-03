@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Specie } from './interface/specie';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SpeciesService } from '../service/species.service';
 import { catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,18 +12,22 @@ import { environment } from 'src/environments/environment';
 })
 export class SpecieComponent implements OnInit {
   
-  constructor(private readonly speciesService: SpeciesService, private readonly route: ActivatedRoute) {}
+  constructor(private readonly speciesService: SpeciesService, private readonly route: ActivatedRoute, private router: Router) {}
   
-  id!: any
+  id!: number
   specie$: Specie[] = []
+
+  @Input() currentPage!: number //* Recibe el valor correspondiente a la página actual
   imgDataNotFound!: string
+  imgPath: string = `${environment.care_types}`
 
   ngOnInit(): void {
-    this.getSpecieDetails()    
-  } 
+    this.route.queryParams.subscribe(param => { this.id = param['id'] })
+    this.getSpecieDetails()
+  }
 
-  getSpecieDetails() {
-    this.id = this.route.snapshot.paramMap.get('id')
+  /* Muestra los datos de acuerdo al parámetro 'id' */ 
+  getSpecieDetails() {    
     this.speciesService.getSpecieDetailsById(this.id)
       .pipe(
         catchError(error => {
@@ -38,7 +42,23 @@ export class SpecieComponent implements OnInit {
       })
   }
 
-  convert(booleanValue: boolean): string {
+  /* Convierte los valores booleanos a texto */
+  booleanToString(booleanValue: boolean): string {
     return booleanValue == false ? 'No' : 'Yes'
+  }
+
+  /* Regresa a la página en donde se quedó */
+  backToList() {
+    this.router.navigate([`species-list/by`], { queryParams: { page: `${this.currentPage}` }})     
+  }
+
+  /* Manda el parámetro a la ruta especificada para mostrar las enfermedades */
+  diseasesList() {
+    this.router.navigate([`specie-details/pest-diseases`], { queryParams: { id: `${this.id}` }})
+  }
+
+  /* Manda el parámetro a la ruta especificada para mostrar los cuidados */
+  caresList() {
+    this.router.navigate(['specie-details/cares-guide'], { queryParams: {id: `${this.id}`}})
   }
 }

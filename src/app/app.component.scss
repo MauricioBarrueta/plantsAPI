@@ -1,0 +1,64 @@
+.content {
+    min-height: 100%; position: relative;
+    text-align: center;
+}
+
+.navigation {
+    justify-content: space-between; position: relative;
+    padding: 0.5rem; margin: 0; text-align: center; color: var(--honeydew);
+    background-color: var(--seaGreen); border-bottom: 2px solid var(--seaGreenShadow);
+    a { 
+        font-size: 18px; letter-spacing: 1px; text-decoration: none;
+        color: var(--honeydew); margin: 0 auto; transition: 0.25s;
+        &:hover { letter-spacing: 2px; }
+    }
+    button {
+        background-color: var(--seaGreen);
+        transition: .35s; border: 0;
+        &:hover { background-color: var(--seaGreenShadow); }
+    }
+}
+
+.input-group {
+    display: flex; justify-content: center;
+    width: 100%; padding: 0.5rem 0;
+    form {
+        width: 80%; display: flex; flex-wrap: nowrap;        
+        span, input { border: 2px solid var(--seaGreenShadow); }
+        span { 
+            border-radius: 5px 0 0 5px;
+            background-color: var(--seaGreenShadow);
+            img { filter: invert(100%); scale: .85; }
+         }
+        input {
+            text-transform: capitalize; text-align: center; letter-spacing: 1px;
+            border-radius: 0 5px 5px 0;
+            &::placeholder {
+                text-transform: none; font-size: 12px; letter-spacing: 2px;
+            }
+        }
+    }    
+}
+
+.data-not-found { width: 450px; }
+
+.back-btn {
+    background-color: var(--seaGreen); color: var(--honeydew);     
+    border-bottom: 2px solid var(--seaGreenShadow); margin-bottom: 10px; 
+    font-size: 18px; letter-spacing: 2px; text-align: center; text-decoration: none;
+    flex-basis: 100%; padding: 0.5rem; border-radius: 0;            
+    cursor: pointer; transition: all 0.35s;
+    &:hover {
+        letter-spacing: 3px;
+    }
+}
+
+.cares-list-container, .pest-info-container {
+    display: flex; align-items: center; justify-content: center; flex-wrap: wrap;   
+    padding-bottom: 1em; text-align: center; cursor: default;
+
+    .care-card, .pest-card {
+        width: 80%; padding: 1em; border-radius: 10px;
+        background-color: var(--honeydew); box-shadow: var(--customBoxShadow); 
+    }
+}

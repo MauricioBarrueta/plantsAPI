@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SpeciesService } from './service/species.service';
 import { Species } from './interface/species';
 import { catchError, tap, throwError } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,23 +11,28 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./species.component.scss']
 })
 export class SpeciesComponent implements OnInit {
-
-  current_page = 1
-  last_page!: number
-  query!: string
-  species$: Species[] = []
-  imgDataNotFound!: string
   
-  constructor(private readonly speciesService: SpeciesService, private router: Router) {}
+  constructor(private readonly speciesService: SpeciesService, private router: Router, private route: ActivatedRoute) {}
+  
+  page: number = 1
+  lastPage!: number
+  species$: Species[] = []
+  nameParam!: string
+
+  imgDataNotFound!: string 
+  imgPath: string = `${environment.care_types}`
 
   ngOnInit(): void {
-    this.router.navigate(['species-list/page/', 1]);      
-    this.getSpeciesListByPage()
+    this.route.queryParams.subscribe(param => { this.nameParam = param['name'] })
+    this.getSpeciesList()    
   }
 
-  /* Lista por páginas */
-  getSpeciesListByPage() {
-    this.speciesService.getSpeciesListByPage(this.current_page)
+  /* Muestra la lista de especies por página o la lista de especies que coincidan con el parámetro 'name', si es que existe */
+  getSpeciesList() {
+    this.route.queryParams.subscribe(param => { this.nameParam = param['name'] })
+    if(this.nameParam === undefined || this.nameParam === '' || this.nameParam === null) {
+      this.router.navigate([`species-list/by`], { queryParams: { page: `${this.page}` }})      
+      this.speciesService.getSpeciesListByPage(this.page)
       .pipe(
         catchError(error => {
           if (error.status === 404 || error.status === 400 || error.status === 429) {
@@ -37,16 +42,25 @@ export class SpeciesComponent implements OnInit {
         }),
         tap((res: Species[]) => { 
           this.species$ = res
-          this.last_page = this.speciesService.last
+          this.lastPage = this.speciesService.last
         })
       )
       .subscribe()
+    } else {
+      this.getQueryToList(this.nameParam)
+    }
+  } 
+
+  /* Obtiene el parámetro ingresado y lo pasa a la ruta especificada */
+  getNameParam(name: string) {
+    this.nameParam = name
+    this.router.navigate(['species-list/by'], { queryParams: { name: `${this.nameParam}` }})
+    this.getQueryToList(this.nameParam)
   }
 
-  /* Filtrar lista */
-  getQueryToList(queryValue: string) {
-    this.query = queryValue
-    this.speciesService.getSpeciesByQuery(this.query)
+  /* Filtra la lista de acuerdo al valor del parámetro */
+  getQueryToList(param: string) {
+    this.speciesService.getSpeciesByQuery(param)
     .pipe(
       tap((res: Species[]) => this.species$ = res )
     )
@@ -55,21 +69,22 @@ export class SpeciesComponent implements OnInit {
 
   /* Página siguiente */
   nextPage() {
-    if(this.current_page >= this.last_page) {
-      alert('No hay más páginas')
-    } else {     
-      this.current_page++
-      this.getSpeciesListByPage() 
-      this.router.navigate(['species-list/page/', this.current_page]);
-    }  
+    this.page++
+    this.getSpeciesList() 
+    this.router.navigate([`species-list/by`], { queryParams: { page: `${this.page}` }})   
   }
 
   /* Página anterior */
   prevPage() {
-    if(this.current_page > 1) {
-      this.current_page--
-      this.getSpeciesListByPage()
-      this.router.navigate(['species-list/page/', this.current_page]);
+    if(this.page > 1) {
+      this.page--
+      this.getSpeciesList()
+      this.router.navigate([`species-list/by`], { queryParams: { page: `${this.page}` }})     
     }  
   }
+
+  /* Manda el parámetro 'id' a la ruta especificada para mostrar los detalles de la especie seleccionada */
+  showDetails(param: number) {    
+    this.router.navigate(['specie-details'], { queryParams: {id: `${param}`} })
+  }  
 }

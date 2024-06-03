@@ -1,10 +1,9 @@
-<app-header></app-header>
 
 <div class="pest-info-container">
 
-    <button class="btn btn-link back-btn" (click)="backToDetails()">&#xf2ea; Volver a detalles</button>
+    <button class="btn btn-link back-btn" (click)="backToDetails(id)">&#xf0e2; Volver a detalles</button>
 
-    <img [src]="imgDataNotFound" alt="" class="page-not-found">
+    <img [src]="imgDataNotFound" alt="" class="data-not-found">
     
     <div class="pest-card" *ngFor="let pest of pestData">
         <div class="pest-name-info">
@@ -23,7 +22,7 @@
 
         <span class="host-title">&#xf542; Huesped más común:</span>
         <div class="pest-host">
-            <span> - Lugares que favorecen a la plaga para su propagación - </span>
+            <span> - Los lugares que favorecen a la plaga para su propagación - </span>
             <p>{{pest.host}}</p>
         </div>     
 
@@ -57,3 +56,5 @@
         
     </div>
 </div>
+
+<app-header></app-header>

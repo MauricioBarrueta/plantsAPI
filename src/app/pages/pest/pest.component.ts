@@ -22,11 +22,11 @@ export class PestComponent implements OnInit {
   constructor(private readonly pestService: PestService, private route: ActivatedRoute, private router: Router ) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(param => { this.id = param['id'] })
     this.getPestBySpecieId()
   }
 
   getPestBySpecieId() {
-    this.id = this.route.snapshot.paramMap.get('id')
     this.pestService.getPestBySpecieId(this.id)
       .pipe(
         catchError(error => {
@@ -54,7 +54,7 @@ export class PestComponent implements OnInit {
   }
 
   /* Volver a los detalles de la planta */
-  backToDetails() {
-    this.router.navigate(['specie-details', this.id]);
+  backToDetails(param: number) {
+    this.router.navigate(['specie-details'], { queryParams: {id: `${param}`} })
   }
 }

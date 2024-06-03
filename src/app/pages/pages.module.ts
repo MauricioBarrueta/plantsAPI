@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { SpeciesComponent } from './species/species.component';
 import { SpecieComponent } from './species/specie/specie.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from '../header/header.component';
 import { RouterModule } from '@angular/router';
 import { CaresComponent } from './cares/cares.component';
 import { PestComponent } from './pest/pest.component';

@@ -24,9 +24,9 @@ export class SpeciesService {
       )
   } 
 
-  /* Filtrar lista por query */
-  getSpeciesByQuery(query: string): Observable<Species[]> {
-    return this.http.get<apiResponse>(`${environment.url}/species-list?key=${environment.key}&q=${query}`)
+  /* Filtrar lista por nombre */
+  getSpeciesByQuery(name: string): Observable<Species[]> {
+    return this.http.get<apiResponse>(`${environment.url}/species-list?key=${environment.key}&q=${name}`)
       .pipe(map((res: apiResponse) => { 
         return res.data
       }))

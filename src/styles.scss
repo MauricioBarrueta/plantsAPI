@@ -2,26 +2,29 @@
 
 * {
     margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace, FontAwesome;
 }
 
+html, body {
+    position: relative;
+}
 body {
-    font-family: 'Roboto Mono', monospace, FontAwesome;
-    min-height: 100vh;
-    background: rgb(53,136,86);
-    background: linear-gradient(0deg, rgba(53,136,86,1) 0%, rgba(90,171,97,1) 100%); 
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: var(--oxley);
 }
 
 p { margin: 0; }
+span { user-select: none; }
 
 :root {
+    /* Color Palette */
+    --seaGreen: #358856; --seaGreenShadow: #005427;
+    --oxley: #6e9b7b;
+    --honeydew: #effdf3; --honeydewShadow: #849188;
+    --burlywood: #deb887;
+
+    --darkCharcoal: #303030;
+
     --customBoxShadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
 }
-
-
-
-/*
-#F5F5F5
-#F2EAD3
-#DFD7BF
-#3F2305
-*/

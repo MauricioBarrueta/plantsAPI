@@ -1,23 +1,8 @@
+@import url(../../app.component.scss);
+
 .cares-list-container {
-    display: flex; align-items: center; flex-wrap: wrap; justify-content: center;
-    padding-bottom: 1em; gap: 15px;
-
-    .btn-back-details, .care-types { background-color: #30694b; color: white; }
-
-    .btn-back-details {
-        padding: 0.6rem; flex-basis: 100%; border-radius: 0;     
-        font-size: 14px; letter-spacing: 2px;
-    }
-
-    .page-not-found {
-        width: 100%; scale: 0.3;
-        position: absolute; top: 0; filter: invert(100%);
-    }
-
+    gap: 15px;
     .care-card {
-        width: 80%; padding: 1em; border-radius: 10px;
-        text-align: center; cursor: default;
-        background-color: whitesmoke; box-shadow: var(--customBoxShadow);
         .specie-name {
             margin: 0 0 10px 0;
             font-size: 16px; letter-spacing: 1px; 
@@ -26,9 +11,9 @@
             }
         }
         .care-description {
-            margin-bottom: 15px;
-            border: 1px solid #30694b; border-radius: 5px;
+            margin-bottom: 10px;           
             .care-types {
+                background-color: var(--seaGreen); color: var(--honeydew);
                 padding: 3px 5px 5px 5px;               
                 .care-type-title {
                     display: inline-block;
