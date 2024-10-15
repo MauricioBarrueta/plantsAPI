@@ -1,6 +1,9 @@
-🇲🇽 Página que permite consultar datos botánicos sobre una amplia variedad de especies de plantas, además de que es posible ver a     detalle las características, sus plagas más comunes, sus cuidados para prevenir dichas plagas e incluso los lugares en el         mundo en donde las condiciones son ideales para su crecimiento y mantenimiento.
+🇲🇽 Este sitio web permite consultar datos botánicos detallados sobre una amplia variedad de especies de plantas, además de que es posible ver a detalle tanto las características, las plagas más comunes, sus cuidados e incluso los lugares en el mundo en donde las condiciones son ideales para su crecimiento y mantenimiento.
 
-🇺🇸 This page allows you to consult botanical data on a wide variety of plant species, with the possibility of seeing in detail       their characteristics, their most common pests, their care to prevent them and even the places in the world where conditions      are ideal for their growth and maintenance.
+🇺🇸 This website allows you to consult detailed botanical data on a wide variety of plant species, as well as to see in detail their characteristics, the most common pests, their care and even the places in the world where conditions are ideal for their growth and maintenance.
+
+🔗 https://plantsdb-ba711.web.app/
+
 
 ![plantsBD](https://github.com/MauricioBarrueta/plantsAPI/assets/60496232/14718df4-a001-4c96-8505-b98245c21746)
 
