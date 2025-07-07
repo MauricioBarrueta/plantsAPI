@@ -1,11 +1,10 @@
-🇲🇽 Este sitio web permite consultar datos botánicos detallados sobre una amplia variedad de especies de plantas, además de que es posible ver a detalle tanto las características, las plagas más comunes, sus cuidados e incluso los lugares en el mundo en donde las condiciones son ideales para su crecimiento y mantenimiento.
+🇲🇽 Sitio web desarrollado con Angular y TypeScript, SCSS y Bootstrap, publicado con Firebase Hosting y conectado a la API de Perenual (perenual.com/docs/api).
 
-🇺🇸 This website allows you to consult detailed botanical data on a wide variety of plant species, as well as to see in detail their characteristics, the most common pests, their care and even the places in the world where conditions are ideal for their growth and maintenance.
+🇺🇸 Website developed with Angular and TypeScript, SCSS and Bootstrap, published with Firebase Hosting and connected to the Perenual API (perenual.com/docs/api).
 
 🔗 https://plantsdb-ba711.web.app/
 
-
-![plantsBD](https://github.com/MauricioBarrueta/plantsAPI/assets/60496232/14718df4-a001-4c96-8505-b98245c21746)
+![plants](https://github.com/user-attachments/assets/34197d0b-a365-4b12-82f4-7e4cfcbcd163)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
