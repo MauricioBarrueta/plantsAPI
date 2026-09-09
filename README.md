@@ -1,6 +1,6 @@
-🇲🇽 Sitio web desarrollado con Angular y TypeScript, SCSS y Bootstrap, publicado con Firebase Hosting y conectado a la API de Perenual (perenual.com/docs/api).
+🇲🇽 Sitio web desarrollado con Angular y TypeScript, SCSS y Bootstrap, publicado con Firebase Hosting y conectado a la API Perenual.
 
-🇺🇸 Website developed with Angular and TypeScript, SCSS and Bootstrap, published with Firebase Hosting and connected to the Perenual API (perenual.com/docs/api).
+🇺🇸 Website developed with Angular and TypeScript, using SCSS and Bootstrap, deployed on Firebase Hosting and connected to the Perenual API.
 
 🔗 https://plantsdb-ba711.web.app/
 
